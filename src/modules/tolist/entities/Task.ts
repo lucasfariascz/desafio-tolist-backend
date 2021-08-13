@@ -1,6 +1,12 @@
 import { v4 as uuidV4} from "uuid";
 import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
 
+enum StatusTask {
+  PENDING  = "pending",
+  PROGRESS = "progress",
+  DONE     = "done"
+}
+
 @Entity("tasks")
 class Task {
   @PrimaryColumn()
@@ -14,6 +20,9 @@ class Task {
 
   @Column()
   email: string;
+
+  @Column({ type: "enum", enum: StatusTask, default: StatusTask.PENDING})
+  status_task: StatusTask;
 
   @CreateDateColumn()
   created_at: Date;

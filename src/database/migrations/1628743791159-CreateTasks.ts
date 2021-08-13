@@ -23,6 +23,11 @@ export class CreateTasks1628743791159 implements MigrationInterface {
               type: "varchar"
             },
             {
+              name: "status_task",
+              type: "enum",
+              enum: ['pending', 'progress', 'done']
+            },
+            {
               name: "created_at",
               type: "timestamp",
               default: "now()"
