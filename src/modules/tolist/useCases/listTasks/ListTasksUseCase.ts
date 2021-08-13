@@ -12,6 +12,8 @@ class ListTasksUseCase {
   execute(): Promise<Task[]> {
     const tasks = this.tasksRepository.list();
 
+    //criar regra para lista atividade concluidas e pendentes e todas
+
     return tasks;
   }
 }
